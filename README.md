@@ -24,12 +24,12 @@ All steps must be run **in order** on first use.
 npm install
 ```
 
-### 2. Start the database
+### 2. Start the database *(first time only)*
 Uncomment and run `setupOrbitDB()` in `main.js`:
 ```js
 setupOrbitDB()
 ```
-This starts the local IPFS node and opens (or creates) the OrbitDB key-value store named `Simulation_v1`.
+This starts the local IPFS node and creates the OrbitDB key-value store named `Simulation_v1` on disk. **Run only once** — the store is persisted locally after the first run.
 
 ### 3. Initialize the 100 keys
 Uncomment and run `initializeKeys()` in `main.js`:
@@ -43,7 +43,8 @@ This populates the database with 100 random SHA-256 keys, each initialized to a 
 ## Methods
 
 ### `setupOrbitDB()`
-Starts the IPFS node and connects to the OrbitDB instance. Must be called before any other operation.
+Starts the IPFS node and connects to the OrbitDB instance.
+**Run only once, the first time** — this sets up the local IPFS node and creates the OrbitDB store on disk. After the first run, the store is persisted locally and subsequent calls simply reopen it. Must be called before any other operation.
 
 ### `initializeKeys()`
 Populates the database with 100 random SHA-256 keys, each with a value of 65,535 zero bits.
