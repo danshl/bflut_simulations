@@ -1,0 +1,6 @@
+node_modules/
+orbitdb/
+.orbitdb/
+local-ipfs-repo/
+.env
+.DS_Store
